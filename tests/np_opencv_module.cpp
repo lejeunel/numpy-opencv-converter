@@ -32,7 +32,7 @@ cv::Mat test_with_args(const cv::Mat_<float>& in, const int& var1 = 1,
 class GenericWrapper {
  public: 
   GenericWrapper(const int& _var_int = 1, const float& _var_float = 1.f,
-                 const double& _var_double = 1.d, const std::string& _var_string = std::string("test_string"))
+                 const double& _var_double = 1., const std::string& _var_string = std::string("test_string"))
       : var_int(_var_int), var_float(_var_float), var_double(_var_double), var_string(_var_string)
   {
 
@@ -71,7 +71,7 @@ BOOST_PYTHON_MODULE(np_opencv_module)
   // Class
   py::class_<GenericWrapper>("GenericWrapper")
       .def(py::init<py::optional<int, float, double, std::string> >(
-          (py::arg("var_int")=1, py::arg("var_float")=1.f, py::arg("var_double")=1.d,
+          (py::arg("var_int")=1, py::arg("var_float")=1., py::arg("var_double")=1.,
            py::arg("var_string")=std::string("test"))))
       .def("process", &GenericWrapper::process)
       ;
