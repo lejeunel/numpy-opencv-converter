@@ -63,7 +63,12 @@ static PyObject* failmsgp(const char *fmt, ...)
   return 0;
 }
 
+#if CV_MAJOR_VERSION < 3
+#define OPENCV_3 0
+#else
 #define OPENCV_3 1
+#endif
+
 #if OPENCV_3
 class NumpyAllocator : public MatAllocator
 {
@@ -86,6 +91,7 @@ public:
 
 	UMatData* allocate(int dims0, const int* sizes, int type, void* data, size_t* step, int flags, UMatUsageFlags usageFlags) const
     {
+		USAGE_DEFAULT;
         if( data != 0 )
         {
             CV_Error(Error::StsAssert, "The data should normally be NULL!");
