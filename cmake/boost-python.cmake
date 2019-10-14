@@ -1,13 +1,16 @@
 function(boost_python_module NAME)
-  find_package(Boost COMPONENTS python system REQUIRED)
+  #find_package(Boost 1.58.0 REQUIRED COMPONENTS python3 system)
+  message("Boost_INCLUDE_DIRS: " ${Boost_INCLUDE_DIRS} )
+  find_package( Boost 1.58.0 REQUIRED COMPONENTS python3 system)
 
-  # message("Boost_INCLUDE_DIRS: " ${Boost_INCLUDE_DIRS} )
-  # message("Boost_LIBRARIES: " ${Boost_LIBRARIES} )
+  message("Boost_INCLUDE_DIRS: " ${Boost_INCLUDE_DIRS} )
+  message("Boost_LIBRARIES: " ${Boost_LIBRARIES} )
 
   # For some odd reason, Boost_DIR is set to not found
   # http://stackoverflow.com/questions/18927970/boost-dir-notfound-on-cmake
   set (Boost_DIR "" CACHE INTERNAL "")
-  find_package(PythonLibs REQUIRED)
+  set(Python_ADDITIONAL_VERSIONS 3.4)
+  find_package(PythonLibs 3 REQUIRED)
 
   set(DEP_LIBS
     ${Boost_PYTHON_LIBRARY}
