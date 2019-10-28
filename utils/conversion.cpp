@@ -272,8 +272,8 @@ cv::Mat NDArrayConverter::toMat(const PyObject *o)
     // std::cout << " step: ";
     // for (const auto& e : step) {
     //     std::cout << e << " ";
-    }
-    std::cout << std::endl;
+    // }
+    // std::cout << std::endl;
 
     // TODO: Possible bug in multi-dimensional matrices
 #if 1
