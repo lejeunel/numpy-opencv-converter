@@ -260,18 +260,18 @@ cv::Mat NDArrayConverter::toMat(const PyObject *o)
         transposed = true;
     }
     
-    std::cerr << " ndims: " << ndims
-              << " type: " << type << std::endl;
+    // std::cerr << " ndims: " << ndims
+    //           << " type: " << type << std::endl;
 
-    std::cout << " size: ";
-    for (const auto& e : size) {
-        std::cout << e << " ";
-    }
-    std::cout << std::endl;
+    // std::cout << " size: ";
+    // for (const auto& e : size) {
+    //     std::cout << e << " ";
+    // }
+    // std::cout << std::endl;
 
-    std::cout << " step: ";
-    for (const auto& e : step) {
-        std::cout << e << " ";
+    // std::cout << " step: ";
+    // for (const auto& e : step) {
+    //     std::cout << e << " ";
     }
     std::cout << std::endl;
 
