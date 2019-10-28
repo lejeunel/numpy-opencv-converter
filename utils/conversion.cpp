@@ -259,12 +259,21 @@ cv::Mat NDArrayConverter::toMat(const PyObject *o)
         std::swap(step[0], step[1]);
         transposed = true;
     }
+    
+    std::cerr << " ndims: " << ndims
+              << " type: " << type << std::endl;
 
-    // std::cerr << " ndims: " << ndims
-    //           << " size: " << size
-    //           << " type: " << type
-    //           << " step: " << step 
-    //           << " size: " << size[2] << std::endl;
+    std::cout << " size: ";
+    for (const auto& e : size) {
+        std::cout << e << " ";
+    }
+    std::cout << std::endl;
+
+    std::cout << " step: ";
+    for (const auto& e : step) {
+        std::cout << e << " ";
+    }
+    std::cout << std::endl;
 
     // TODO: Possible bug in multi-dimensional matrices
 #if 1
